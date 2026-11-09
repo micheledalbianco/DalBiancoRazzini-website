@@ -16,11 +16,19 @@ Sito statico a pagina singola. Nessuna build: `index.html` + `assets/`.
 ## Deploy
 Netlify collegato a questo repo: ogni push su `main` pubblica.
 
+## Ritratti del team
+`assets/{giuseppe-dal-bianco,viviana-salvalai,isa,vasilica,donia}.webp`, 900px.
+Sono verticali dentro riquadri quasi quadrati: `#team .ph img{object-position:
+center 12%}` evita che `cover` tagli la fronte.
+
 ## Foto ancora da sostituire
-Nella pagina restano immagini segnaposto in base64 per:
-- i 5 ritratti del team (Dal Bianco, Razzini, Chierici, Chiappini, igienista) e lo staff (Isa, Vasilica, Donia)
+Restano segnaposto stock in base64 (4 schede su 9):
+- Dott.ssa Luciana Razzini, Dott. Davide Chiappini, "Igienista dentale", Lidia
 
 ## Ritocchi sulle foto
 - `scansione-digitale`: rimosso il nome dell'utente visibile sullo schermo del
   laptop (clonata la porzione di interfaccia vuota alla stessa altezza). Il
   master 2000px ritoccato è in `_master/`, da lì si rigenera la webp.
+- `Dott. Viviana Salvalai` ha foto e ruolo ma **nessuna bio**: la sua scheda ha
+  sostituito quella del Dott. Alessandro Chierici ed è volutamente senza il
+  retro apribile, che va riattivato quando arriva il testo.
