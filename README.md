@@ -87,7 +87,9 @@ escluse di proposito. Gli altri colori non sono stati toccati.
 
 ## Marchio
 Sorriso + due fossette ad arco puro, tutto bianco (`#f4efe6`), 44px accanto al
-logotipo: a 36px era timido, a 52px prendeva il sopravvento sulla scritta. Sta
+logotipo. Le fossette sono corte e sottili (tratto 10) e inclinate di 16° con la
+cima verso l'esterno, così seguono il profilo della guancia invece di stare
+dritte accanto al sorriso: a 36px era timido, a 52px prendeva il sopravvento sulla scritta. Sta
 in header, footer e favicon (lo slot `.mk` c'era già ma era `display:none`).
 È inline nell'HTML: per cambiarlo si modificano i `<path>` in `.brand .mk` e
 `.foot-brand .mk` (due copie) e la favicon.
