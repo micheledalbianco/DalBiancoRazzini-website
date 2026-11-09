@@ -68,3 +68,39 @@ un'immagine. Le foto vanno ottimizzate prima (webp ~1600px per le gallerie,
 > Nota: la riga sotto le schede dice che le immagini sono pubblicate con il
 > consenso dei pazienti e che i risultati non sono garantiti. Va tenuta e
 > adattata al testo del consenso che lo studio fa firmare.
+
+## Il blu
+Campionato dalle foto dello studio: vetrata FACExp `#2B7AC1` e porta blu
+`#0B3153` stanno entrambe su **hue 208,4°**, il roll-up a 212°. La palette era
+a 217° (più indaco). Tutta la famiglia blu è stata riportata a 208,4°
+mantenendo luminosità e saturazione, così cambia il "punto" di blu e non il
+tono del sito:
+
+| era | ora | dove |
+| --- | --- | --- |
+| `#14233b` | `#14293b` | `--ink` |
+| `#1c2c46` | `#1c3246` | `--sage` |
+| `#142338` | `#142738` | `--sage-deep`, `--hero` |
+| `#263a5c` / `#1a2c47` | `#26425c` / `#1a3247` | gradiente hero |
+
+Le casacche del personale sono un altro blu (195°, più ciano) e sono state
+escluse di proposito. Gli altri colori non sono stati toccati.
+
+## Marchio
+Sorriso + fossette, nell'header e nel footer (lo slot `.mk` c'era già ma era
+`display:none`) e nella favicon. Le fossette accennano **D** e **R**: a sinistra
+l'arco è chiuso da una corda sottile al 55% di opacità che suggerisce la pancia
+della D, a destra una gambetta diagonale fa la R. A 36px le lettere spariscono e
+restano due fossette — è voluto. Il marchio è inline nell'HTML: per cambiarlo si
+modificano i `<path>` in `.brand .mk` e `.foot-brand .mk` (sono due copie) e la
+favicon.
+
+## Carosello delle foto dello studio
+Il tasto "Sfoglia" sulla striscia apre il pannello con le foto grandi: palco,
+frecce, didascalia, contatore e miniature. L'elenco è costruito a runtime dalle
+`.gallery img`, quindi **aggiungendo una foto alla striscia entra anche nel
+carosello**; la didascalia si prende da `data-cap`. Si naviga anche con le
+frecce della tastiera.
+
+Il crossfade della striscia è a 5s per foto (ciclo `gcyc6` da 30s).
+
