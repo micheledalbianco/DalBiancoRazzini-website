@@ -105,6 +105,14 @@ frecce della tastiera.
 
 Il crossfade della striscia è a 5s per foto (ciclo `gcyc6` da 30s).
 
+Sul dimensionamento del palco: `aspect-ratio` **e** `max-height` insieme fanno
+restringere la larghezza al browser, che tiene il rapporto riducendo entrambi i
+lati — risultato, un vuoto a destra (fino a 388px a 1280). La larghezza va
+fissata (`width:100%`) e l'altezza limitata: la foto riempie sempre, al massimo
+si ritaglia in verticale. Didascalia e contatore stanno in sovrimpressione sulla
+foto, non in una riga a parte, così le miniature restano visibili senza
+scrollare.
+
 ## Hero
 Titolo su tre righe, tutte della stessa dimensione: "Da oltre 40 anni" è uno
 `<span class="kicker">` dentro l'`<h1>` (solo `display:block`), così resta
