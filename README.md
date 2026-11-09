@@ -89,7 +89,9 @@ escluse di proposito. Gli altri colori non sono stati toccati.
 Sorriso + due fossette ad arco puro, tutto bianco (`#f4efe6`), 44px accanto al
 logotipo. Le fossette sono corte e sottili (tratto 10) e inclinate di 24° con la
 cima verso l'interno: si alzano come gli angoli di una bocca, così l'insieme
-legge come un sorriso stilizzato: a 36px era timido, a 52px prendeva il sopravvento sulla scritta. Sta
+legge come un sorriso stilizzato. Sono abbassate di 13 unità (`translate(0 13)`)
+per centrarle sulla massa del sorriso: senza, restavano alte e il marchio
+sembrava sbilanciato in su: a 36px era timido, a 52px prendeva il sopravvento sulla scritta. Sta
 in header, footer e favicon (lo slot `.mk` c'era già ma era `display:none`).
 È inline nell'HTML: per cambiarlo si modificano i `<path>` in `.brand .mk` e
 `.foot-brand .mk` (due copie) e la favicon.
