@@ -316,6 +316,9 @@
   .stat .num{display:block;font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,2.7vw,2.4rem);line-height:1.1;font-variant-numeric:oldstyle-nums}
   .stat.cert{display:flex;flex-direction:column;justify-content:flex-start}
   .stat.cert img{height:44px;width:auto;margin:0 auto 0;display:block}
+  .stat .stars-row{display:block;width:88px;margin:11px auto 0}
+  .stat .stars-row svg{display:block;width:100%;height:auto}
+  .stat .stars-row + .lbl{margin-top:9px}
   .stat .lbl{display:block;font-family:var(--sans);font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:var(--taupe);margin-top:13px}
   @media(max-width:680px){.stats-row{grid-template-columns:1fr 1fr;gap:34px 0}.stat:nth-child(3){border-left:none}}
   /* banda percorso (scura) */
@@ -421,7 +424,7 @@
       </div>
   </section>
 
-  <section class="stats"><div class="wrap"><div class="stats-row stagger"><div class="stat"><span class="num">1984</span><span class="lbl">anno di fondazione</span></div><div class="stat"><span class="num">4.500+</span><span class="lbl">pazienti seguiti</span></div><div class="stat"><span class="num">4,4<span class="num-su">/ 5</span></span><span class="lbl">valutazione Google</span></div><div class="stat cert"><div class="facelogo" role="img" aria-label="Centro FACExp" style="width:100px;height:47px;margin:0 auto"></div><span class="lbl">Certificazione</span></div></div></div></section>
+  <section class="stats"><div class="wrap"><div class="stats-row stagger"><div class="stat"><span class="num">1984</span><span class="lbl">anno di fondazione</span></div><div class="stat"><span class="num">4.500+</span><span class="lbl">pazienti seguiti</span></div><div class="stat"><span class="num">4,4<span class="num-su">/ 5</span></span><span class="stars-row" role="img" aria-label="4,4 stelle su 5"><svg viewBox="0 0 100 20" aria-hidden="true" focusable="false"><defs><g id="st5"><path transform="translate(0.4 0.4) scale(.8)" d="m12 2 3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9 12 2Z"/><path transform="translate(20.4 0.4) scale(.8)" d="m12 2 3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9 12 2Z"/><path transform="translate(40.4 0.4) scale(.8)" d="m12 2 3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9 12 2Z"/><path transform="translate(60.4 0.4) scale(.8)" d="m12 2 3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9 12 2Z"/><path transform="translate(80.4 0.4) scale(.8)" d="m12 2 3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9 12 2Z"/></g><clipPath id="st44"><rect x="0" y="0" width="88" height="20"/></clipPath></defs><use href="#st5" fill="#e3d9c6"/><g clip-path="url(#st44)"><use href="#st5" fill="#b1904e"/></g></svg></span><span class="lbl">valutazione Google</span></div><div class="stat cert"><div class="facelogo" role="img" aria-label="Centro FACExp" style="width:100px;height:47px;margin:0 auto"></div><span class="lbl">Certificazione</span></div></div></div></section>
 
   <section id="chisiamo" class="sec">
     <div class="wrap">
@@ -883,6 +886,11 @@
   .sheet-body > *{opacity:1;transform:none}
   .sheet-open .sheet-body > *{animation:none}
 }
+/* fascia dati: le quattro etichette sulla stessa linea anche se una
+   colonna e' piu' alta (il tile Google ha le stelline in mezzo) */
+.stats-row{align-items:stretch}
+.stats-row .stat{display:flex;flex-direction:column}
+.stats-row .stat .lbl{margin-top:auto;padding-top:12px}
 /* ===== CASI CLINICI DENTRO IL PANNELLO ===== */
 .sheet-body .casi-area{margin-top:46px;padding-top:34px;border-top:1px solid var(--line)}
 .sheet-body .casi-area > h4{margin-top:0}

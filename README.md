@@ -125,3 +125,14 @@ I due tasti restano ma sono meno "pillola": angoli a 5px, etichette in
 maiuscoletto spaziato, icona telefono su Chiamaci. Lo stile vale solo per
 `.hero .btn`: altrove i bottoni sono ancora a pillola.
 
+## Fascia dati
+Il tile Google mostra `4,4 / 5`, le stelline e poi l'etichetta. Le stelle sono
+un solo SVG: cinque sagome chiare e le stesse cinque in ottone ritagliate
+all'88% con una `clipPath`, così la quinta risulta piena per poco meno di metà
+— è il 4,4 vero, non cinque stelle piene. Per cambiare voto si sposta la
+`width` del `rect` dentro `#st44` (voto/5 × 100).
+
+Le quattro etichette sono allineate sulla stessa linea con `margin-top:auto` su
+`.stats-row .stat .lbl`: serve la specificità a tre classi, perché più avanti
+nel file c'è un `.stat .lbl` che altrimenti vince per posizione.
+
