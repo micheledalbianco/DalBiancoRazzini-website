@@ -89,9 +89,9 @@ escluse di proposito. Gli altri colori non sono stati toccati.
 Sorriso + due fossette ad arco puro, tutto bianco (`#f4efe6`), 44px accanto al
 logotipo. Le fossette sono corte e sottili (tratto 10) e inclinate di 24° con la
 cima verso l'interno: si alzano come gli angoli di una bocca, così l'insieme
-legge come un sorriso stilizzato. Sono abbassate di 13 unità (`translate(0 13)`)
-per centrarle sulla massa del sorriso: senza, restavano alte e il marchio
-sembrava sbilanciato in su: a 36px era timido, a 52px prendeva il sopravvento sulla scritta. Sta
+legge come un sorriso stilizzato. Sono accostate di 9 unità verso il centro
+(`translate(±9 0)`), non abbassate: la versione abbassata bilanciava meglio le
+masse ma allontanava le fossette dagli angoli della bocca: a 36px era timido, a 52px prendeva il sopravvento sulla scritta. Sta
 in header, footer e favicon (lo slot `.mk` c'era già ma era `display:none`).
 È inline nell'HTML: per cambiarlo si modificano i `<path>` in `.brand .mk` e
 `.foot-brand .mk` (due copie) e la favicon.
@@ -128,7 +128,9 @@ maiuscoletto spaziato, icona telefono su Chiamaci. Lo stile vale solo per
 `.hero .btn`: altrove i bottoni sono ancora a pillola.
 
 ## Fascia dati
-Il tile Google mostra `4,4 / 5`, le stelline e poi l'etichetta. Le stelle sono
+Il tile Google non ha il numero grande: ci sono le stelline e sotto
+"4,4 VALUTAZIONE GOOGLE" come frase unica, nel carattere dell'etichetta.
+Le stelle sono
 un solo SVG: cinque sagome chiare e le stesse cinque in ottone ritagliate
 all'88% con una `clipPath`, così la quinta risulta piena per poco meno di metà
 — è il 4,4 vero, non cinque stelle piene. Per cambiare voto si sposta la
