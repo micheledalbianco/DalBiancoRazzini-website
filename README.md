@@ -106,9 +106,9 @@ frecce della tastiera.
 Il crossfade della striscia è a 5s per foto (ciclo `gcyc6` da 30s).
 
 ## Hero
-Titolo su tre righe: "Da oltre 40 anni" è uno `<span class="kicker">` dentro
-l'`<h1>`, a 0.40em, così resta un'unica intestazione per i motori di ricerca e
-per chi legge con uno screen reader. Sottotitolo ridotto a "Centro ortodontico
+Titolo su tre righe, tutte della stessa dimensione: "Da oltre 40 anni" è uno
+`<span class="kicker">` dentro l'`<h1>` (solo `display:block`), così resta
+un'unica intestazione per i motori di ricerca e per gli screen reader. Sottotitolo ridotto a "Centro ortodontico
 FACExp di Cremona". Le recensioni sono state tolte da qui perché la valutazione
 Google è già nella fascia dati subito sotto (dove ora si legge `4,4 / 5`).
 I due tasti restano ma sono meno "pillola": angoli a 5px, etichette in
