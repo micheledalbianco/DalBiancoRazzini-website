@@ -17,13 +17,14 @@ Sito statico a pagina singola. Nessuna build: `index.html` + `assets/`.
 Netlify collegato a questo repo: ogni push su `main` pubblica.
 
 ## Ritratti del team
-`assets/{giuseppe-dal-bianco,viviana-salvalai,isa,vasilica,donia}.webp`, 900px.
+`assets/{giuseppe-dal-bianco,luciana-razzini,viviana-salvalai,isa,vasilica,
+donia}.webp`, 900px.
 Sono verticali dentro riquadri quasi quadrati: `#team .ph img{object-position:
 center 12%}` evita che `cover` tagli la fronte.
 
 ## Foto ancora da sostituire
-Restano segnaposto stock in base64 (4 schede su 9):
-- Dott.ssa Luciana Razzini, Dott. Davide Chiappini, "Igienista dentale", Lidia
+Restano segnaposto stock in base64 (3 schede su 9):
+- Dott. Davide Chiappini, "Igienista dentale", Lidia
 
 ## Ritocchi sulle foto
 - `scansione-digitale`: rimosso il nome dell'utente visibile sullo schermo del
