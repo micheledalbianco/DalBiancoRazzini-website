@@ -35,7 +35,8 @@ Restano segnaposto stock in base64 (3 schede su 9):
   retro apribile, che va riattivato quando arriva il testo.
 
 ## Pannello di dettaglio (aree di cura e casi clinici)
-Le schede di "Aree di cura" non girano più: aprono un pannello che scorre sopra
+Le schede di "Aree di cura" non girano più ("tocca per i dettagli e i casi
+clinici"): aprono un pannello che scorre sopra
 il sito, con la pagina dietro sfocata (scheda centrata da 721px in su, foglio
 dal basso su mobile). Stessa meccanica per i casi clinici.
 
@@ -54,16 +55,14 @@ uno o più `<img src="assets/casi/....webp" alt="..." loading="lazy"
 decoding="async">`. Vuota non viene mostrata.
 
 ### Aggiungere un caso clinico
-In `#casi`, duplica un `<article class="case">` e compila:
-- `.case-cover` — copertina (togli il commento e punta al file in `assets/casi/`)
-- `.case-tag`, `h3`, `.case-sub` — etichetta, titolo e riga di sintesi
-- `.case-detail` — testo lungo, `dl.sheet-facts` (durata, trattamento, equipe) e
-  `.sheet-gallery` con una `<figure class="ba">` per ogni coppia prima/dopo:
-  sostituisci i `<div class="ph-slot">` con gli `<img>`
+I casi stanno **dentro l'area di cura** a cui appartengono, non in una sezione a
+parte: si aprono dallo stesso pannello, in fondo al dettaglio dell'area. Dentro
+`.area-f.back` c'è un `<div class="casi-area">`: duplica un `<article
+class="caso">` e compila titolo (`.caso-t`), `dl.sheet-facts` (durata,
+trattamento, equipe), il racconto e la `.sheet-gallery` con una `<figure
+class="ba">` per ogni coppia prima/dopo, sostituendo i `<div class="ph-slot">`
+con gli `<img>`.
 
-I riquadri tratteggiati sono i posti vuoti e spariscono appena metti
-un'immagine. Le foto vanno ottimizzate prima (webp ~1600px per le gallerie,
-~1200px per le copertine).
 
 > Nota: la riga sotto le schede dice che le immagini sono pubblicate con il
 > consenso dei pazienti e che i risultati non sono garantiti. Va tenuta e
@@ -87,13 +86,15 @@ Le casacche del personale sono un altro blu (195°, più ciano) e sono state
 escluse di proposito. Gli altri colori non sono stati toccati.
 
 ## Marchio
-Sorriso + fossette, nell'header e nel footer (lo slot `.mk` c'era già ma era
-`display:none`) e nella favicon. Le fossette accennano **D** e **R**: a sinistra
-l'arco è chiuso da una corda sottile al 55% di opacità che suggerisce la pancia
-della D, a destra una gambetta diagonale fa la R. A 36px le lettere spariscono e
-restano due fossette — è voluto. Il marchio è inline nell'HTML: per cambiarlo si
-modificano i `<path>` in `.brand .mk` e `.foot-brand .mk` (sono due copie) e la
-favicon.
+Sorriso + due fossette ad arco puro, tutto bianco (`#f4efe6`), 44px accanto al
+logotipo: a 36px era timido, a 52px prendeva il sopravvento sulla scritta. Sta
+in header, footer e favicon (lo slot `.mk` c'era già ma era `display:none`).
+È inline nell'HTML: per cambiarlo si modificano i `<path>` in `.brand .mk` e
+`.foot-brand .mk` (due copie) e la favicon.
+
+> Scartata l'idea delle fossette a forma di D e R: con le lettere leggibili il
+> sorriso non si leggeva più come sorriso, e accennandole appena non si
+> capivano.
 
 ## Carosello delle foto dello studio
 Il tasto "Sfoglia" sulla striscia apre il pannello con le foto grandi: palco,
@@ -103,4 +104,13 @@ carosello**; la didascalia si prende da `data-cap`. Si naviga anche con le
 frecce della tastiera.
 
 Il crossfade della striscia è a 5s per foto (ciclo `gcyc6` da 30s).
+
+## Hero
+Pensato sulla foto vera dell'ingresso: occhiello con l'indirizzo
+(`Via Decia 3 · Cremona`), titolo "Quarant'anni dietro questa porta", testo con
+le discipline. Le recensioni sono state tolte da qui perché la valutazione
+Google è già nella fascia dati subito sotto (dove ora si legge `4,4 / 5`).
+I due tasti restano ma sono meno "pillola": angoli a 5px, etichette in
+maiuscoletto spaziato, icona telefono su Chiamaci. Lo stile vale solo per
+`.hero .btn`: altrove i bottoni sono ancora a pillola.
 
