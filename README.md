@@ -106,8 +106,10 @@ frecce della tastiera.
 Il crossfade della striscia è a 5s per foto (ciclo `gcyc6` da 30s).
 
 ## Hero
-Titolo e testo originali ("Il dentista di fiducia della tua famiglia"), senza
-occhiello. Le recensioni sono state tolte da qui perché la valutazione
+Titolo su tre righe: "Da oltre 40 anni" è uno `<span class="kicker">` dentro
+l'`<h1>`, a 0.40em, così resta un'unica intestazione per i motori di ricerca e
+per chi legge con uno screen reader. Sottotitolo ridotto a "Centro ortodontico
+FACExp di Cremona". Le recensioni sono state tolte da qui perché la valutazione
 Google è già nella fascia dati subito sotto (dove ora si legge `4,4 / 5`).
 I due tasti restano ma sono meno "pillola": angoli a 5px, etichette in
 maiuscoletto spaziato, icona telefono su Chiamaci. Lo stile vale solo per
