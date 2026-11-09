@@ -106,9 +106,8 @@ frecce della tastiera.
 Il crossfade della striscia è a 5s per foto (ciclo `gcyc6` da 30s).
 
 ## Hero
-Pensato sulla foto vera dell'ingresso: occhiello con l'indirizzo
-(`Via Decia 3 · Cremona`), titolo "Quarant'anni dietro questa porta", testo con
-le discipline. Le recensioni sono state tolte da qui perché la valutazione
+Occhiello con l'indirizzo (`Via Decia 3 · Cremona`) sopra il titolo e il testo
+originali ("Il dentista di fiducia della tua famiglia"). Le recensioni sono state tolte da qui perché la valutazione
 Google è già nella fascia dati subito sotto (dove ora si legge `4,4 / 5`).
 I due tasti restano ma sono meno "pillola": angoli a 5px, etichette in
 maiuscoletto spaziato, icona telefono su Chiamaci. Lo stile vale solo per
