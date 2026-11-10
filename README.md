@@ -5,7 +5,14 @@ Sito statico a pagina singola. Nessuna build: `index.html` + `assets/`.
 ## Struttura
 - `index.html` — la pagina (font Cormorant incorporato in base64)
 - `assets/studio-reception.{jpg,webp}` — foto di copertina, 2000px
-- `assets/studio-reception-1200.{jpg,webp}` — variante mobile (<720px)
+- `assets/hero-mobile.{jpg,webp}` — hero su telefono (<720px): **ritaglio
+  verticale** 890×1335 preso dall'originale a x=950. Su un telefono la finestra
+  dell'hero è quasi 1:2 e `cover` su una foto 3:2 ne mostrava una fetta centrale
+  illeggibile; questo ritaglio tiene insieme corridoio, logo FACExp e la scritta
+  sul vetro. Per rifarlo:
+  `convert 1.jpg -crop 890x1335+950+0 +repage -quality 74 hero-mobile.webp`
+- `assets/studio-reception-1200.{jpg,webp}` — vecchia variante mobile, non più
+  referenziata
 - `assets/{sala-attesa,sala-operativa,sala-visita,ingresso-ascensore,
   sterilizzazione,scansione-digitale}.webp` — galleria "Lo studio", 1600px. Il crossfade è nello `<style id="gallery-cycle">`
   in fondo a `index.html`: per aggiungere una slide, inserisci l'`<img>` nella

@@ -355,7 +355,10 @@
 }
 .hero{background:radial-gradient(130% 110% at 72% 18%,#26425c 0%,#1a3247 55%,#142738 100%)!important}
 .hero-media{filter:brightness(.62) contrast(1.06) saturate(.95)!important}
-@media (max-width:720px){.hero-media{background-image:url('assets/studio-reception-1200.jpg')!important;background-image:image-set(url('assets/studio-reception-1200.webp') type('image/webp'),url('assets/studio-reception-1200.jpg') type('image/jpeg'))!important;background-position:42% 38%!important}}
+/* su telefono la finestra e' quasi 1:2: con la foto orizzontale cover ne
+   mostrava una fetta centrale illeggibile. Qui usa un ritaglio verticale
+   fatto apposta, che tiene corridoio, logo FACExp e scritta sul vetro. */
+@media (max-width:720px){.hero-media{background-image:url('assets/hero-mobile.jpg')!important;background-image:image-set(url('assets/hero-mobile.webp') type('image/webp'),url('assets/hero-mobile.jpg') type('image/jpeg'))!important;background-position:center!important}}
 .hero .scrim{background:linear-gradient(90deg,rgba(14,27,38,.86) 0%,rgba(18,35,50,.55) 46%,rgba(30,53,74,.30) 100%)!important}
 /* pulsanti champagne, testo blu notte */
 .btn-solid{background:var(--gold-btn)!important;color:#142738!important}
