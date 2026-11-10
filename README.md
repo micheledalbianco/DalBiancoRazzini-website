@@ -161,3 +161,26 @@ chiamata. Si scambiano via CSS (`.solo-desk` / `.solo-mob`), nessun JS: il
 vecchio script che su desktop dirottava Chiamaci verso i contatti è stato
 rimosso perché ora quel tasto sul desktop non esiste.
 
+## Form di prenotazione
+Prima non inviava nulla: il JS bloccava il submit e mostrava solo il messaggio
+di conferma (c'era anche la nota "Anteprima dimostrativa").
+
+Ora è un form **Netlify Forms**: `name="prenota"`, `method="POST"`,
+`data-netlify="true"`, campo nascosto `form-name` e honeypot `bot-field`
+(nascosto via `.hp`, fuori schermo e non raggiungibile da tab). Il JS invia in
+POST con `fetch` e mostra il riquadro di conferma solo **dopo** l'ok del
+server; se l'invio fallisce riabilita il tasto e mostra la riga rossa con il
+numero di telefono.
+
+Netlify rileva il form al deploy, quindi va deployato almeno una volta.
+Le richieste finiscono in **Forms** nella dashboard; per riceverle via email
+serve aggiungere una *form notification* lì — l'indirizzo non sta nel codice,
+così non finisce in pasto agli spam-bot.
+
+In locale (`python3 -m http.server`) l'invio **fallisce di proposito**: il POST
+su `/` risponde 501 e si vede il messaggio d'errore. Si prova solo online.
+
+> Da sistemare: il link "informativa privacy" accanto al consenso punta a `#`.
+> Un form che raccoglie nome, telefono, email e motivo della visita ha bisogno
+> di una pagina vera.
+
