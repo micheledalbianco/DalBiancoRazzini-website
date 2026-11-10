@@ -143,7 +143,9 @@ nel file c'è un `.stat .lbl` che altrimenti vince per posizione.
 ## Badge FACExp
 Era una sezione intera (logo, titolo, due punti, nota "chi è l'ortodontista",
 CTA). Ora è un badge di certificazione: scheda centrata con filetto ottone,
-logo FACExp, "Studio certificato" e "Centro Ortodontico FACExp di Cremona".
+logo FACExp, "Studio della rete" e "Centro Ortodontico FACExp di Cremona".
+FACExp non rilascia una certificazione: è una rete, e il testo lo dice così
+sia nel badge sia nel tile della fascia dati.
 Tutto il badge è un link a facexp.it (nuova scheda), e lo è anche il logo nel
 tile "Certificazione" della fascia dati. Il testo che c'era prima è
 recuperabile dalla storia git.
