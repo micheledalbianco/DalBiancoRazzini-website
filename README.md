@@ -140,11 +140,16 @@ Le quattro etichette sono allineate sulla stessa linea con `margin-top:auto` su
 `.stats-row .stat .lbl`: serve la specificità a tre classi, perché più avanti
 nel file c'è un `.stat .lbl` che altrimenti vince per posizione.
 
-## Fascia FACExp
+## Badge FACExp
 Era una sezione intera (logo, titolo, due punti, nota "chi è l'ortodontista",
-CTA). Ora è una fascia alta poco più di un filo: marchio dello studio × logo
-FACExp e la riga "Centro Ortodontico FACExp di Cremona". Il testo che c'era
-prima è recuperabile dalla storia git, commit precedente a questo.
+CTA). Ora è un badge di certificazione: scheda centrata con filetto ottone,
+logo FACExp, "Studio certificato" e "Centro Ortodontico FACExp di Cremona".
+Tutto il badge è un link a facexp.it (nuova scheda), e lo è anche il logo nel
+tile "Certificazione" della fascia dati. Il testo che c'era prima è
+recuperabile dalla storia git.
+
+> L'indirizzo `facexp.it` è stato letto dal roll-up nella foto della sala
+> d'attesa: da verificare se il sito cambia.
 Tolta anche la voce "Centro FACExp" dai due menu: non è più una sezione.
 
 ## Tasti dell'hero
