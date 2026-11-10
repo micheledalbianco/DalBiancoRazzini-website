@@ -140,3 +140,17 @@ Le quattro etichette sono allineate sulla stessa linea con `margin-top:auto` su
 `.stats-row .stat .lbl`: serve la specificità a tre classi, perché più avanti
 nel file c'è un `.stat .lbl` che altrimenti vince per posizione.
 
+## Fascia FACExp
+Era una sezione intera (logo, titolo, due punti, nota "chi è l'ortodontista",
+CTA). Ora è una fascia alta poco più di un filo: marchio dello studio × logo
+FACExp e la riga "Centro Ortodontico FACExp di Cremona". Il testo che c'era
+prima è recuperabile dalla storia git, commit precedente a questo.
+Tolta anche la voce "Centro FACExp" dai due menu: non è più una sezione.
+
+## Tasti dell'hero
+Due tasti sempre, ma il secondo cambia: da 821px in su "Scopri il nostro team"
+(ancora a `#team`), sotto gli 820 "Chiamaci" con `tel:` che fa partire la
+chiamata. Si scambiano via CSS (`.solo-desk` / `.solo-mob`), nessun JS: il
+vecchio script che su desktop dirottava Chiamaci verso i contatti è stato
+rimosso perché ora quel tasto sul desktop non esiste.
+
