@@ -398,7 +398,7 @@
       <a href="#team">Il Team</a>
       <a href="#dove">Dove siamo</a>
     </nav>
-    <a class="btn cta" href="#prenota"><span>Prenota</span></a>
+    <a class="btn cta" href="#prenota"><span>Prenota una visita</span></a>
     <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">&#9776;</button>
     <nav class="menu" aria-label="Menu completo">
       <a class="msec" href="#chisiamo">Chi siamo</a>
@@ -459,7 +459,7 @@
           <span class="facelogo fb-face" role="img" aria-label="FACExp"></span>
           <span class="fb-copy">
             <span class="fb-title">Centro Ortodontico FACExp di Cremona</span>
-            <span class="fb-go">facexp.it &#8250;</span>
+            <span class="fb-go">Scopri di pi&ugrave; sul sito facexp.it &#8250;</span>
           </span>
         </a>
       </div>
@@ -903,6 +903,14 @@
 .callnote a{color:var(--sage-deep);text-decoration:underline}
 .form-err{display:none;color:#9a3b32}
 .form-err a{color:#9a3b32;text-decoration:underline}
+/* le sezioni restano nel menu a tendina anche quando l'header e' in scroll */
+.menu .msec{display:block}
+.site.scrolled .menu .msec{display:block}
+header.site.scrolled .menu .msec{display:block}
+/* il tasto dell'header ora ha un'etichetta lunga: stringo un filo i fianchi
+   e la spaziatura del menu inline, cosi' non si toccano */
+.site .cta{padding:.92em 1.5em;font-size:.82rem;letter-spacing:.04em}
+.site .mainnav{gap:22px}
 /* ===== IL PERCORSO: timeline al posto delle colonne divise ===== */
 .journey .jsteps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px}
 .journey .jstep{position:relative;border:none;padding:0 34px 0 0}
