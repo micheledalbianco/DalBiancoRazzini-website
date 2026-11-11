@@ -720,9 +720,9 @@
           '<h3>I nostri ambienti</h3></div>'+
           '<div class="shots"><div class="shots-stage">'+
           src.map(function(im){return '<img src="'+im.getAttribute('src')+'" alt="'+(im.getAttribute('alt')||'')+'">';}).join('')+
-          '<div class="shots-meta"><span class="shots-cap"></span><span class="shots-count"></span></div>'+
           '<div class="shots-nav"><button type="button" class="sprev" aria-label="Foto precedente">&#8249;</button>'+
           '<button type="button" class="snext" aria-label="Foto successiva">&#8250;</button></div></div>'+
+          '<div class="shots-meta"><span class="shots-cap"></span><span class="shots-count"></span></div>'+
           '<div class="shots-thumbs">'+src.map(function(im,i){
             return '<button type="button" aria-label="Vai alla foto '+(i+1)+'"><img src="'+im.getAttribute('src')+'" alt=""></button>';
           }).join('')+'</div></div>';
@@ -866,8 +866,7 @@
 
 /* tasti dell'hero: meno "pillola", piu' editoriali */
 .hero .cta-row{gap:14px;margin-top:36px}
-.hero .btn{border-radius:5px;padding:1.05em 1.9em;font-size:.76rem;font-weight:600;
-  letter-spacing:.15em;text-transform:uppercase}
+.hero .btn{}
 .hero .btn-solid{background:var(--gold-btn)!important;color:#142738!important;border-color:var(--gold-btn)}
 .hero .btn-solid:hover{background:#dcc9a4!important;border-color:#dcc9a4}
 .hero .btn-ghost{color:#f4efe6;border-color:rgba(244,239,230,.45);background:transparent}
@@ -907,24 +906,44 @@
 .form-err a{color:#9a3b32;text-decoration:underline}
 /* tutti i tasti uguali: maiuscoletto spaziato e la forma squadrata dell'hero,
    niente piu' pastiglie (header, barra mobile e invio del form comprese) */
-.btn{text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;font-weight:600;
+.btn{text-transform:uppercase;letter-spacing:.15em;font-size:.76rem;font-weight:600;
   border-radius:5px;padding:1.05em 1.9em}
-.site .cta{font-size:.76rem;letter-spacing:.14em;padding:1.02em 1.7em}
+/* niente eccezioni per il tasto dell'header: deve essere identico a quello dell'hero */
 /* il carosello si apre piu' largo e con la foto piu' alta */
-.sheet.is-shots{width:min(1180px,100%);height:min(86vh,880px)}
-@media(max-width:720px){.sheet.is-shots{height:92vh}}
+.sheet.is-shots{width:min(1000px,100%);height:min(92vh,980px)}
+/* finestre basse: la foto e' limitata dall'altezza, quindi stringo anche il
+   pannello per non lasciare fasce vuote ai lati */
+@media(max-height:800px) and (min-width:721px){.sheet.is-shots{width:min(820px,100%)}}
+@media(max-height:680px) and (min-width:721px){.sheet.is-shots{width:min(700px,100%)}}
+.sheet.is-shots .sheet-body{padding-bottom:32px}
+.sheet.is-shots .shots-head h3{margin:7px 0 0}
+.sheet.is-shots .shots-head h3::after{margin:13px 0 0}
 /* nel carosello la foto prende tutta l'altezza che avanza: niente valori fissi
    da indovinare, le miniature restano sempre dentro al pannello */
 .sheet.is-shots .sheet-body{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;overflow:hidden}
 .sheet.is-shots .shots{flex:1 1 auto;min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:14px}
-.sheet.is-shots .shots-stage{aspect-ratio:auto;max-height:none;height:100%;min-height:190px}
+/* il riquadro riempie lo spazio, la foto ci sta dentro intera e centrata:
+   cosi' vale sia quando il limite e' l'altezza sia quando e' la larghezza */
+.sheet.is-shots .shots-stage{width:100%;height:100%;max-width:100%;aspect-ratio:auto;margin:0;min-height:170px;background:transparent;border-radius:0;overflow:visible}
+/* foto per intero, nel loro formato: niente ritagli */
+.sheet.is-shots .shots-stage img{object-fit:contain;border-radius:12px}
+/* su telefono il vincolo si inverte: larghezza piena, altezza dal rapporto */
+@media(max-width:720px){
+  .sheet.is-shots{height:auto;max-height:92vh}
+  .sheet.is-shots .sheet-body{overflow:auto}
+  .sheet.is-shots .shots{grid-template-rows:auto auto auto}
+  .sheet.is-shots .shots-stage{width:100%;height:auto;aspect-ratio:3/2;min-height:0}
+}
+.sheet.is-shots .shots-meta{position:static;padding:0;background:none;justify-content:center;gap:26px;align-items:baseline}
+.sheet.is-shots .shots-thumbs{justify-content:center}
+.sheet.is-shots .shots-cap{color:var(--taupe)}
+.sheet.is-shots .shots-count{color:var(--ink)}
+.sheet.is-shots .shots{grid-template-rows:minmax(0,1fr) auto auto;gap:12px}
 /* le sezioni restano nel menu a tendina anche quando l'header e' in scroll */
 .menu .msec{display:block}
 .site.scrolled .menu .msec{display:block}
 header.site.scrolled .menu .msec{display:block}
-/* il tasto dell'header ora ha un'etichetta lunga: stringo un filo i fianchi
-   e la spaziatura del menu inline, cosi' non si toccano */
-.site .cta{padding:.92em 1.5em;font-size:.82rem;letter-spacing:.04em}
+/* il menu inline sta un filo piu' stretto, per il tasto lungo */
 .site .mainnav{gap:22px}
 /* ===== IL PERCORSO: timeline al posto delle colonne divise ===== */
 .journey .jsteps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px}

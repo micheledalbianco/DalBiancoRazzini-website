@@ -203,6 +203,12 @@ quelle nuove le scavalcano con `.journey .jstep` (due classi). Se si tocca
 questa parte, conviene modificare il blocco nuovo in fondo, non quello sopra.
 
 ## Carosello: come viene dimensionato
+Le foto si vedono **intere, senza tagli**: il riquadro riempie lo spazio
+disponibile e l'immagine ci sta dentro con `object-fit:contain`, quindi vale
+sia quando il limite è l'altezza della finestra sia quando è la larghezza.
+Didascalia, contatore e miniature sono centrati sotto la foto. Sulle finestre
+basse (<800px) il pannello si stringe, altrimenti restano fasce vuote ai lati.
+
 Quando si apre dal tasto Sfoglia, il pannello prende la classe `is-shots`:
 più largo (1180px) e con un'**altezza definita** (`min(86vh,880px)`). Serve
 quella: senza, il pannello si adatta al contenuto e la foto, che è impostata a
