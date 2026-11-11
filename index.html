@@ -671,7 +671,7 @@
       else{document.body.style.overflow='';document.body.style.paddingRight='';}
     }
     function apri(src,trigger){
-      if(src!==null&&!(src&&src.querySelector&&src.querySelector('.shots')))sheet.classList.remove('is-shots');
+      if(!(src&&src.querySelector&&src.querySelector('.lb'))){sheet.classList.remove('is-shots');root.classList.remove('shots-mode');}
       var c=src.isConnected?src.cloneNode(true):src;
       c.querySelectorAll('.hint').forEach(function(h){h.remove();});
       body.innerHTML=''; while(c.firstChild)body.appendChild(c.firstChild);
@@ -681,7 +681,7 @@
     }
     function chiudi(){
       if(!root.classList.contains('sheet-open'))return;
-      root.classList.remove('sheet-open'); sheet.setAttribute('aria-hidden','true'); lock(false);
+      root.classList.remove('sheet-open','shots-mode'); sheet.setAttribute('aria-hidden','true'); lock(false);
       if(last&&last.focus)last.focus(); last=null;
     }
     closeBtn.addEventListener('click',chiudi);
@@ -709,30 +709,26 @@
         thumbs.forEach(function(t,k){t.classList.toggle('on',k===idx);});
         var cap=sheet.querySelector('.shots-cap'), cnt=sheet.querySelector('.shots-count');
         if(cap)cap.textContent=caps[idx]||'';
-        if(cnt)cnt.textContent=(idx+1)+' / '+stageImgs.length;
+        if(cnt)cnt.textContent=(idx+1)+' di '+stageImgs.length;
       }
       function apriCarosello(){
         var src=[].slice.call(document.querySelectorAll('.studio-strip .gallery img'));
         if(!src.length)return;
         caps=src.map(function(im){return im.getAttribute('data-cap')||'';});
         var box=document.createElement('div');
-        box.innerHTML='<div class="shots-head"><span class="eyebrow">Lo studio</span>'+
-          '<h3>Gli ambienti e le tecnologie</h3></div>'+
-          '<div class="shots"><div class="shots-stage">'+
+        box.innerHTML='<div class="lb"><div class="lb-stage">'+
           src.map(function(im){return '<img src="'+im.getAttribute('src')+'" alt="'+(im.getAttribute('alt')||'')+'">';}).join('')+
-          '<div class="shots-nav"><button type="button" class="sprev" aria-label="Foto precedente">&#8249;</button>'+
-          '<button type="button" class="snext" aria-label="Foto successiva">&#8250;</button></div></div>'+
-          '<div class="shots-meta"><span class="shots-cap"></span></div>'+
-          '<div class="shots-thumbs">'+src.map(function(im,i){
-            return '<button type="button" aria-label="Vai alla foto '+(i+1)+'"><img src="'+im.getAttribute('src')+'" alt=""></button>';
-          }).join('')+'</div></div>';
-        sheet.classList.add('is-shots');
+          '</div><div class="lb-bar">'+
+          '<button type="button" class="sprev" aria-label="Foto precedente">&#8249;</button>'+
+          '<span class="shots-cap"></span><span class="shots-count"></span>'+
+          '<button type="button" class="snext" aria-label="Foto successiva">&#8250;</button>'+
+          '</div></div>';
+        sheet.classList.add('is-shots'); root.classList.add('shots-mode');
         apri(box,strip);
-        stageImgs=[].slice.call(sheet.querySelectorAll('.shots-stage img'));
-        thumbs=[].slice.call(sheet.querySelectorAll('.shots-thumbs button'));
+        stageImgs=[].slice.call(sheet.querySelectorAll('.lb-stage img'));
+        thumbs=[];
         sheet.querySelector('.sprev').addEventListener('click',function(){mostra(idx-1);});
         sheet.querySelector('.snext').addEventListener('click',function(){mostra(idx+1);});
-        thumbs.forEach(function(t,i){t.addEventListener('click',function(){mostra(i);});});
         mostra(0);
       }
       strip.addEventListener('click',apriCarosello);
@@ -741,7 +737,7 @@
       });
       document.addEventListener('keydown',function(e){
         if(!root.classList.contains('sheet-open')||!stageImgs.length)return;
-        if(!sheet.querySelector('.shots-stage'))return;
+        if(!sheet.querySelector('.lb-stage'))return;
         if(e.key==='ArrowRight'){e.preventDefault();mostra(idx+1);}
         if(e.key==='ArrowLeft'){e.preventDefault();mostra(idx-1);}
       });
@@ -917,40 +913,45 @@
 .btn{text-transform:uppercase;letter-spacing:.15em;font-size:.76rem;font-weight:600;
   border-radius:5px;padding:1.05em 1.9em}
 /* niente eccezioni per il tasto dell'header: deve essere identico a quello dell'hero */
-/* il carosello si apre piu' largo e con la foto piu' alta */
-.sheet.is-shots{width:min(1100px,100%);height:min(92vh,980px)}
-/* finestre basse: la foto e' limitata dall'altezza, quindi stringo anche il
-   pannello per non lasciare fasce vuote ai lati */
-@media(max-height:800px) and (min-width:721px){.sheet.is-shots{width:min(820px,100%)}}
-@media(max-height:680px) and (min-width:721px){.sheet.is-shots{width:min(700px,100%)}}
-.sheet.is-shots .sheet-body{padding-bottom:32px}
-.sheet.is-shots .shots-head h3{margin:7px 0 0}
-.sheet.is-shots .shots-head h3::after{margin:13px 0 0}
-/* nel carosello la foto prende tutta l'altezza che avanza: niente valori fissi
-   da indovinare, le miniature restano sempre dentro al pannello */
-.sheet.is-shots .sheet-body{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;overflow:hidden}
-.sheet.is-shots .shots{flex:1 1 auto;min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:14px}
-/* il riquadro riempie lo spazio, la foto ci sta dentro intera e centrata:
-   cosi' vale sia quando il limite e' l'altezza sia quando e' la larghezza */
-.sheet.is-shots .shots-stage{width:100%;height:100%;max-width:100%;aspect-ratio:auto;margin:0;min-height:170px;background:transparent;border-radius:0;overflow:visible}
-/* foto per intero, nel loro formato: niente ritagli */
-.sheet.is-shots .shots-stage img{object-fit:contain;border-radius:12px}
-/* su telefono il vincolo si inverte: larghezza piena, altezza dal rapporto */
+/* Dove siamo: il blocco partiva attaccato al titolo, mentre nelle altre
+   sezioni la griglia stacca di 56px */
+#dove .loc{margin-top:56px}
+#dove .head{max-width:46ch}
+/* ===== VISUALIZZATORE FOTO A TUTTO SCHERMO =====
+   Dal tasto Sfoglia: niente scheda, solo la foto su fondo scuro con i
+   comandi raccolti in una pastiglia in basso al centro. */
+/* con un pannello aperto la barra fissa in basso va nascosta: su telefono
+   copriva i comandi del visualizzatore e ne rubava i clic */
+.sheet-open .mbar{display:none}
+.shots-mode .sheet-scrim{background:rgba(9,12,17,.94);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.sheet.is-shots{position:fixed;inset:0;left:0;top:0;width:100%;height:100%;max-width:none;max-height:none;
+  margin:0;border:none;border-radius:0;background:transparent;box-shadow:none;
+  display:flex;flex-direction:column;transform:translateY(14px)}
+.sheet-open .sheet.is-shots{transform:none}
+.sheet.is-shots .sheet-head{flex:none;padding:18px 22px 0}
+.sheet.is-shots .sheet-close{background:rgba(244,239,230,.12);border-color:rgba(244,239,230,.32);color:#f4efe6}
+.sheet.is-shots .sheet-close:hover{background:#f4efe6;border-color:#f4efe6;color:var(--ink)}
+.sheet.is-shots .sheet-body{flex:1 1 auto;min-height:0;display:flex;padding:4px 26px 26px;overflow:hidden}
+.lb{flex:1;min-height:0;width:100%;display:flex;flex-direction:column;align-items:center;gap:20px}
+.lb-stage{position:relative;flex:1 1 auto;min-height:0;width:100%}
+.lb-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+  border-radius:10px;opacity:0;transition:opacity .3s ease}
+.lb-stage img.on{opacity:1}
+.lb-bar{flex:none;display:inline-flex;align-items:center;gap:4px;padding:7px 9px;border-radius:999px;
+  background:rgba(20,30,44,.78);border:1px solid rgba(244,239,230,.16);color:#f4efe6;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.lb-bar button{width:40px;height:40px;border-radius:50%;border:none;background:transparent;color:#f4efe6;
+  font-size:1.35rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.lb-bar button:hover{background:rgba(244,239,230,.16)}
+.lb-bar button:focus-visible{outline:2px solid #f4efe6;outline-offset:2px}
+.lb-bar .shots-cap{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  opacity:.72;padding-left:10px}
+.lb-bar .shots-count{font-family:var(--sans);font-size:.82rem;padding:0 12px;white-space:nowrap;opacity:.9}
 @media(max-width:720px){
-  .sheet.is-shots{height:auto;max-height:92vh}
-  .sheet.is-shots .sheet-body{overflow:auto}
-  .sheet.is-shots .shots{grid-template-rows:auto auto auto}
-  .sheet.is-shots .shots-stage{width:100%;height:auto;aspect-ratio:3/2;min-height:0}
+  .sheet.is-shots .sheet-body{padding:4px 12px 16px}
+  .lb{gap:14px}
+  .lb-bar .shots-cap{display:none}
 }
-.sheet.is-shots .shots-meta{position:static;padding:0;background:none;justify-content:center;gap:26px;align-items:baseline}
-.sheet.is-shots .shots-thumbs{justify-content:safe center}
-.sheet.is-shots .shots-cap{color:var(--taupe)}
-.sheet.is-shots .shots-count{color:var(--ink)}
-.sheet.is-shots .shots{grid-template-rows:minmax(0,1fr) auto auto;gap:12px}
-/* niente filetto sotto il titolo del carosello: nel resto del sito le
-   intestazioni non ce l'hanno */
-.sheet.is-shots .shots-head h3::after{display:none}
-.sheet.is-shots .shots-head h3{margin:9px 0 0}
 /* le sezioni restano nel menu a tendina anche quando l'header e' in scroll */
 .menu .msec{display:block}
 .site.scrolled .menu .msec{display:block}

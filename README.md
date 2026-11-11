@@ -206,7 +206,20 @@ Le vecchie regole `.jstep{border-left:...}` sono ancora nel file più sopra:
 quelle nuove le scavalcano con `.journey .jstep` (due classi). Se si tocca
 questa parte, conviene modificare il blocco nuovo in fondo, non quello sopra.
 
-## Carosello: come viene dimensionato
+## Visualizzatore foto (ex carosello)
+Dal tasto Sfoglia si apre a **tutto schermo**: fondo scuro, foto intera
+centrata (`object-fit:contain`, mai ritagliata) e una pastiglia in basso al
+centro con freccia indietro, didascalia, "N di M" e freccia avanti. Niente
+scheda, niente titolo, niente miniature.
+
+Tecnicamente riusa lo stesso pannello delle aree di cura: la classe
+`is-shots` sul pannello lo rende trasparente e a pieno schermo, la classe
+`shots-mode` sull'`<html>` scurisce la velatura. Entrambe vengono tolte alla
+chiusura e all'apertura di un pannello normale, altrimenti le schede delle
+aree ereditano lo stile. Con un pannello aperto la barra fissa in basso di
+mobile è nascosta: copriva i comandi e ne rubava i clic.
+
+## Vecchio carosello a scheda: come era dimensionato
 Le foto si vedono **intere, senza tagli**: il riquadro riempie lo spazio
 disponibile e l'immagine ci sta dentro con `object-fit:contain`, quindi vale
 sia quando il limite è l'altezza della finestra sia quando è la larghezza.
