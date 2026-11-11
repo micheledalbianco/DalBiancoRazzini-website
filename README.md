@@ -13,10 +13,14 @@ Sito statico a pagina singola. Nessuna build: `index.html` + `assets/`.
   `convert 1.jpg -crop 890x1335+950+0 +repage -quality 74 hero-mobile.webp`
 - `assets/studio-reception-1200.{jpg,webp}` — vecchia variante mobile, non più
   referenziata
-- `assets/{sala-attesa,sala-operativa,sala-visita,ingresso-ascensore,
-  sterilizzazione,scansione-digitale}.webp` — galleria "Lo studio", 2000px (risoluzione nativa degli scatti). Il crossfade è nello `<style id="gallery-cycle">`
+- `assets/{sala-attesa,sala-operativa,sala-visita,sala-operativa-3,
+  sala-operativa-4,sala-operativa-5,radiologico,ingresso-ascensore,
+  sterilizzazione,scansione-digitale}.webp` — galleria "Lo studio", dieci foto
+  a 2000px (risoluzione nativa degli scatti). La didascalia è in `data-cap`,
+  non nel nome del file: `sala-visita` e le `sala-operativa-*` mostrano tutte
+  "Sala operativa". Il crossfade è nello `<style id="gallery-cycle">`
   in fondo a `index.html`: per aggiungere una slide, inserisci l'`<img>` nella
-  `.gallery`, porta la durata di `gcyc6` a N×2s, aggiungi un `nth-child` con
+  `.gallery`, porta la durata di `gcyc10` a N×5s, aggiungi un `nth-child` con
   delay (N-1)×2s e metti i due stop intermedi a 100/N−2 % e 100/N+4 %.
 - `netlify.toml` — publish dir e cache header
 
