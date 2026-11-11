@@ -14,7 +14,7 @@ Sito statico a pagina singola. Nessuna build: `index.html` + `assets/`.
 - `assets/studio-reception-1200.{jpg,webp}` — vecchia variante mobile, non più
   referenziata
 - `assets/{sala-attesa,sala-operativa,sala-visita,ingresso-ascensore,
-  sterilizzazione,scansione-digitale}.webp` — galleria "Lo studio", 1600px. Il crossfade è nello `<style id="gallery-cycle">`
+  sterilizzazione,scansione-digitale}.webp` — galleria "Lo studio", 2000px (risoluzione nativa degli scatti). Il crossfade è nello `<style id="gallery-cycle">`
   in fondo a `index.html`: per aggiungere una slide, inserisci l'`<img>` nella
   `.gallery`, porta la durata di `gcyc6` a N×2s, aggiungi un `nth-child` con
   delay (N-1)×2s e metti i due stop intermedi a 100/N−2 % e 100/N+4 %.
