@@ -418,6 +418,7 @@
     <div class="hero-media"></div>
     <div class="scrim"></div>
     <div class="wrap">
+      <span class="hero-studio">Studio Dentistico Dal Bianco &middot; Razzini</span>
       <h1>Da oltre 40 anni ci prendiamo cura del vostro <em>sorriso</em></h1>
       <p class="lead">Centro ortodontico FACExp di Cremona.</p>
       <div class="cta-row">
@@ -590,11 +591,11 @@
 <footer id="contatti">
   <div class="wrap">
     <div class="foot">
-      <div><div class="foot-brand"><span class="mk" aria-hidden="true"><svg viewBox="0 0 200 132" role="img" aria-label="Dal Bianco Razzini"><g fill="none" stroke-linecap="round"><path d="M30 54 Q100 126 170 54" stroke="#f4efe6" stroke-width="18"/><g transform="translate(9 0) rotate(24 18 59)"><path d="M24 38 C12 49 12 69 24 80" stroke="#f4efe6" stroke-width="10"/></g><g transform="translate(-9 0) rotate(-24 182 59)"><path d="M176 38 C188 49 188 69 176 80" stroke="#f4efe6" stroke-width="10"/></g></g></svg></span><span class="light"><b>Dal Bianco &middot; Razzini</b><span>Studio Dentistico dal 1984</span></span></div><p>Centro FACExp di Cremona.</p></div>
+      <div><div class="foot-brand"><span class="mk" aria-hidden="true"><svg viewBox="0 0 200 132" role="img" aria-label="Dal Bianco Razzini"><g fill="none" stroke-linecap="round"><path d="M30 54 Q100 126 170 54" stroke="#f4efe6" stroke-width="18"/><g transform="translate(9 0) rotate(24 18 59)"><path d="M24 38 C12 49 12 69 24 80" stroke="#f4efe6" stroke-width="10"/></g><g transform="translate(-9 0) rotate(-24 182 59)"><path d="M176 38 C188 49 188 69 176 80" stroke="#f4efe6" stroke-width="10"/></g></g></svg></span><span class="light"><b>Dal Bianco &middot; Razzini</b><span>Studio Dentistico dal 1984</span></span></div><p>Centro Ortodontico FACExp di Cremona.</p></div>
       <div><h4>Contatti</h4><a href="tel:+39037224674">+39 0372 24674</a><a href="mailto:info@studiodalbiancorazzini.it">info@studiodalbiancorazzini.it</a><p>Via Decia 3, 26100 Cremona</p></div>
-      <div><h4>Naviga</h4><a href="#chisiamo">Chi siamo</a><a href="#face">Centro FACExp</a><a href="#aree">Aree di cura</a><a href="#team">Il Team</a><a href="#dove">Dove siamo</a><a href="#prenota">Prenota una visita</a><!-- nascosta su richiesta: <a href="https://claude.ai/code/artifact/152a26c0-e8c3-4413-9b23-30ff993f1286" target="_blank" rel="noopener">Guida all&apos;ortodonzia</a> --></div>
+      <div><h4>Naviga</h4><a href="#chisiamo">Chi siamo</a><a href="#aree">Aree di cura</a><a href="#team">Il Team</a><a href="#faq">FAQ</a><a href="#dove">Dove siamo</a><a href="#prenota">Prenota una visita</a><!-- nascosta su richiesta: <a href="https://claude.ai/code/artifact/152a26c0-e8c3-4413-9b23-30ff993f1286" target="_blank" rel="noopener">Guida all&apos;ortodonzia</a> --></div>
     </div>
-    <div class="legal"><span>&copy; 2026 Studio Dentistico Associato Dal Bianco &middot; Razzini &middot; P.IVA IT 00845180199 &middot; Direttore Sanitario: Dott.ssa Luciana Razzini</span><span><a href="#">Privacy</a> &middot; <a href="#">Cookie</a></span></div>
+    <div class="legal"><span>&copy; 2026 Studio Dentistico Associato Dal Bianco &middot; Razzini &middot; P.IVA IT 00845180199 &middot; Direttore Sanitario: Dott. Giuseppe Dal Bianco</span><span><a href="#">Privacy</a> &middot; <a href="#">Cookie</a></span></div>
   </div>
 </footer>
 
@@ -866,6 +867,12 @@
 .area .area-in{transform:none!important;transition:none}
 .area .area-f.back{display:none}
 
+/* riga con il nome dello studio sopra il titolo dell'hero */
+.hero .hero-studio{display:block;font-family:var(--serif);font-size:1.15rem;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(244,239,230,.92);font-weight:500;margin-bottom:18px;
+  opacity:0;transform:translateY(22px);animation:rise 1s cubic-bezier(.2,.6,.2,1) forwards}
+@media(max-width:720px){.hero .hero-studio{font-size:.86rem;letter-spacing:.13em;margin-bottom:14px}}
+@media(prefers-reduced-motion:reduce){.hero .hero-studio{animation:none;opacity:1;transform:none}}
 /* tasti dell'hero: meno "pillola", piu' editoriali */
 .hero .cta-row{gap:14px;margin-top:36px}
 .hero .btn{}
