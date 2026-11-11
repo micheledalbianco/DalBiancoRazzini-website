@@ -905,10 +905,11 @@
 .callnote a{color:var(--sage-deep);text-decoration:underline}
 .form-err{display:none;color:#9a3b32}
 .form-err a{color:#9a3b32;text-decoration:underline}
-/* tutti i tasti in maiuscoletto spaziato */
-.btn{text-transform:uppercase;letter-spacing:.13em;font-size:.76rem;font-weight:600}
-.site .cta{font-size:.74rem;letter-spacing:.12em}
-.hero .btn{font-size:.76rem;letter-spacing:.14em}
+/* tutti i tasti uguali: maiuscoletto spaziato e la forma squadrata dell'hero,
+   niente piu' pastiglie (header, barra mobile e invio del form comprese) */
+.btn{text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;font-weight:600;
+  border-radius:5px;padding:1.05em 1.9em}
+.site .cta{font-size:.76rem;letter-spacing:.14em;padding:1.02em 1.7em}
 /* il carosello si apre piu' largo e con la foto piu' alta */
 .sheet.is-shots{width:min(1180px,100%);height:min(86vh,880px)}
 @media(max-width:720px){.sheet.is-shots{height:92vh}}
