@@ -720,7 +720,7 @@
           src.map(function(im){return '<img src="'+im.getAttribute('src')+'" alt="'+(im.getAttribute('alt')||'')+'">';}).join('')+
           '</div><div class="lb-bar">'+
           '<button type="button" class="sprev" aria-label="Foto precedente">&#8249;</button>'+
-          '<span class="shots-cap"></span><span class="shots-count"></span>'+
+          '<span class="shots-cap"></span>'+
           '<button type="button" class="snext" aria-label="Foto successiva">&#8250;</button>'+
           '</div></div>';
         sheet.classList.add('is-shots'); root.classList.add('shots-mode');
@@ -916,7 +916,22 @@
 /* Dove siamo: il blocco partiva attaccato al titolo, mentre nelle altre
    sezioni la griglia stacca di 56px */
 #dove .loc{margin-top:56px}
-#dove .head{max-width:46ch}
+/* titoli delle sezioni chiare nello stesso grigio della filosofia */
+#aree .head h2,#team .head h2,#dove .head h2,#recensioni .head h2{color:var(--taupe)}
+/* la foto della striscia stava in un riquadro 2.09:1 contro l'1.5 degli
+   scatti: tagliava quasi un terzo dell'altezza e certe stanze non si
+   riconoscevano. Sopra i 1200px la colonna foto e' larga 668px fissi
+   (il contenuto e' limitato da --mw), quindi 445px di altezza danno
+   esattamente 3:2; sotto, colonna unica e rapporto dichiarato. */
+.studio-strip .ph{min-height:445px}
+/* il blocco scuro riempie la riga, con il testo centrato dentro */
+.studio-strip .studio-info{align-self:stretch;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:1199px){
+  .studio-strip{grid-template-columns:1fr}
+  .studio-strip .ph{min-height:0;aspect-ratio:3/2}
+}
+/* senza contatore la didascalia resta anche su telefono */
+.lb-bar .shots-cap{padding:0 14px}
 /* ===== VISUALIZZATORE FOTO A TUTTO SCHERMO =====
    Dal tasto Sfoglia: niente scheda, solo la foto su fondo scuro con i
    comandi raccolti in una pastiglia in basso al centro. */
@@ -950,7 +965,6 @@
 @media(max-width:720px){
   .sheet.is-shots .sheet-body{padding:4px 12px 16px}
   .lb{gap:14px}
-  .lb-bar .shots-cap{display:none}
 }
 /* le sezioni restano nel menu a tendina anche quando l'header e' in scroll */
 .menu .msec{display:block}
