@@ -202,3 +202,12 @@ Le vecchie regole `.jstep{border-left:...}` sono ancora nel file più sopra:
 quelle nuove le scavalcano con `.journey .jstep` (due classi). Se si tocca
 questa parte, conviene modificare il blocco nuovo in fondo, non quello sopra.
 
+## Carosello: come viene dimensionato
+Quando si apre dal tasto Sfoglia, il pannello prende la classe `is-shots`:
+più largo (1180px) e con un'**altezza definita** (`min(86vh,880px)`). Serve
+quella: senza, il pannello si adatta al contenuto e la foto, che è impostata a
+`height:100%` di una riga `1fr`, collassa al minimo. Con l'altezza fissata, la
+colonna flessibile distribuisce lo spazio e la foto prende tutto quello che
+avanza dopo titolo e miniature — quindi è sempre la più grande possibile e le
+miniature non escono mai, a qualsiasi altezza di finestra.
+
