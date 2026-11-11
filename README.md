@@ -191,3 +191,14 @@ su `/` risponde 501 e si vede il messaggio d'errore. Si prova solo online.
 > Un form che raccoglie nome, telefono, email e motivo della visita ha bisogno
 > di una pagina vera.
 
+## Il percorso
+Non più quattro colonne separate da filetti verticali, ma una timeline:
+numeri 1-4 dentro pastiglie in ottone, unite da un filo che sfuma. Sotto gli
+860px si raddrizza — il filo scende lungo i numeri e titolo e testo stanno a
+destra, così la riga di testo è lunga il doppio invece di spezzarsi in colonne
+strette.
+
+Le vecchie regole `.jstep{border-left:...}` sono ancora nel file più sopra:
+quelle nuove le scavalcano con `.journey .jstep` (due classi). Se si tocca
+questa parte, conviene modificare il blocco nuovo in fondo, non quello sopra.
+

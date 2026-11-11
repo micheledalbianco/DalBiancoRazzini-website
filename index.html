@@ -444,10 +444,10 @@
     <div class="wrap">
       <div class="head reveal"><span class="eyebrow">Il percorso</span><h2>Come ti seguiamo, passo dopo passo</h2><p style="color:rgba(243,237,225,.78);font-weight:300">Un metodo chiaro, con tecnologie all'avanguardia a nostro supporto.</p></div>
       <div class="jsteps stagger">
-        <div class="jstep"><div class="jn">01</div><h3>Prima visita</h3><p>Ti ascoltiamo e valutiamo lo stato di salute, senza fretta.</p></div>
-        <div class="jstep"><div class="jn">02</div><h3>Diagnosi digitale</h3><p>Radiografie a basso dosaggio e impronte 3D per vedere con precisione.</p></div>
-        <div class="jstep"><div class="jn">03</div><h3>Piano di cura</h3><p>Obiettivi, tempi e costi chiari fin dall'inizio. Nessuna sorpresa.</p></div>
-          <div class="jstep"><div class="jn">04</div><h3>Controlli nel tempo</h3><p>Richiami e igiene per mantenere i risultati negli anni.</p></div>
+        <div class="jstep"><div class="jn">1</div><h3>Prima visita</h3><p>Ti ascoltiamo e valutiamo lo stato di salute, senza fretta.</p></div>
+        <div class="jstep"><div class="jn">2</div><h3>Diagnosi digitale</h3><p>Radiografie a basso dosaggio e impronte 3D per vedere con precisione.</p></div>
+        <div class="jstep"><div class="jn">3</div><h3>Piano di cura</h3><p>Obiettivi, tempi e costi chiari fin dall'inizio. Nessuna sorpresa.</p></div>
+          <div class="jstep"><div class="jn">4</div><h3>Controlli nel tempo</h3><p>Richiami e igiene per mantenere i risultati negli anni.</p></div>
       </div>
     </div>
   </section>
@@ -903,6 +903,35 @@
 .callnote a{color:var(--sage-deep);text-decoration:underline}
 .form-err{display:none;color:#9a3b32}
 .form-err a{color:#9a3b32;text-decoration:underline}
+/* ===== IL PERCORSO: timeline al posto delle colonne divise ===== */
+.journey .jsteps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px}
+.journey .jstep{position:relative;border:none;padding:0 34px 0 0}
+.journey .jstep:last-child{padding-right:0}
+/* il filo che unisce i numeri: parte dopo la pastiglia e arriva alla successiva */
+.journey .jstep::after{content:"";position:absolute;top:22px;left:56px;right:0;height:1px;
+  background:linear-gradient(to right,rgba(231,207,156,.5),rgba(231,207,156,.16))}
+.journey .jstep:last-child::after{display:none}
+.journey .jstep .jn{position:relative;z-index:1;width:45px;height:45px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:var(--hero);
+  border:1px solid rgba(231,207,156,.5);color:#e7cf9c;
+  font-family:var(--serif);font-size:1.32rem;line-height:1;font-variant-numeric:lining-nums;
+  transition:.3s}
+.journey .jstep:hover .jn{border-color:#e7cf9c;background:rgba(231,207,156,.1)}
+.journey .jstep h3{margin:24px 0 9px;font-size:1.22rem;color:#fff;font-weight:500}
+.journey .jstep p{font-size:.95rem;line-height:1.66;color:rgba(243,237,225,.74);max-width:30ch}
+
+/* sotto gli 860px la timeline si raddrizza: il filo scende lungo i numeri */
+@media(max-width:860px){
+  .journey .jsteps{grid-template-columns:1fr;margin-top:46px}
+  .journey .jstep{display:grid;grid-template-columns:45px 1fr;column-gap:22px;
+    padding:0 0 32px 0}
+  .journey .jstep:last-child{padding-bottom:0}
+  .journey .jstep::after{top:55px;bottom:4px;left:22px;right:auto;width:1px;height:auto;
+    background:linear-gradient(to bottom,rgba(231,207,156,.45),rgba(231,207,156,.12))}
+  .journey .jstep .jn{grid-column:1;grid-row:1/span 2}
+  .journey .jstep h3{grid-column:2;grid-row:1;margin:10px 0 7px}
+  .journey .jstep p{grid-column:2;grid-row:2;max-width:46ch}
+}
 /* ===== BADGE FACExp (era una sezione intera) ===== */
 .faceband{padding:52px 0}
 .faceband .wrap{text-align:center}
