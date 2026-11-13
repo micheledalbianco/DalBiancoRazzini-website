@@ -80,7 +80,7 @@
   .scrolled .menu a:hover{color:var(--sage-deep)}
   /* categorie principali inline: appaiono solo su scroll (header verde), solo desktop */
   @media(min-width:1110px){
-    header.site.scrolled .mainnav{display:flex;align-items:center;gap:26px;position:absolute;left:50%;top:0;height:94px;transform:translateX(-50%)}
+    header.site.scrolled .mainnav{display:flex;align-items:center;gap:26px;position:absolute;left:50%;top:0;height:94px;transform:translateX(calc(-50% + 31px))}
     header.site.scrolled .menu .msec{display:none}
   }
 
@@ -400,7 +400,6 @@
       <a href="#chisiamo">Chi siamo</a>
       <a href="#aree">Aree di cura</a>
       <a href="#team">Il Team</a>
-      <a href="#faq">FAQ</a>
       <a href="#dove">Dove siamo</a>
     </nav>
     <a class="btn cta" href="#prenota"><span>Prenota una visita</span></a>
