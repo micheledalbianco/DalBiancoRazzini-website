@@ -234,3 +234,17 @@ colonna flessibile distribuisce lo spazio e la foto prende tutto quello che
 avanza dopo titolo e miniature — quindi è sempre la più grande possibile e le
 miniature non escono mai, a qualsiasi altezza di finestra.
 
+## Testi delle aree di cura
+I testi delle sette schede vengono dagli appunti manoscritti dello studio
+(cinque fogli, novembre 2026), trascritti fedelmente. Interventi fatti in
+trascrizione, da ricontrollare con l'autore:
+- "E seguiamo faccette" letto come "Eseguiamo faccette"
+- "tasche perpivali" letto come "tasche parodontali"
+- "Dott. B. - R." sciolto in "Studio Dal Bianco · Razzini"
+- "Conservative" lasciato come "Conservativa", il titolo della scheda
+
+Le annotazioni "FOTO", "metti FOTO del sito precedente", "FOTO apparecchi
+(vecchio sito)" e "FOTO di miei bambini" non sono state pubblicate: sono
+promemoria per le immagini, e gli slot `.sheet-gallery` di ogni area sono
+pronti ad accoglierle.
+
