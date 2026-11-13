@@ -767,13 +767,10 @@
         occhiello.className='eyebrow'; occhiello.textContent='Area di cura';
         box.appendChild(occhiello);
         var h3=document.createElement('h3'); h3.textContent=h?h.textContent:''; box.appendChild(h3);
-        var primoP=true;
         [].slice.call(src.children).forEach(function(c){
           if(c===h||c.classList.contains('hint'))return;
           if(c.classList.contains('sheet-gallery')&&!c.children.length)return;
-          var k=c.cloneNode(true);
-          if(k.tagName==='P'&&primoP){k.className='sheet-lead';primoP=false;}
-          box.appendChild(k);
+          box.appendChild(c.cloneNode(true));
         });
         apri(box,t);
       }
@@ -1114,9 +1111,12 @@ header.site.scrolled .menu .msec{display:block}
 .sheet-body > h3{margin:12px 0 0}
 .sheet-body > h3::after{content:"";display:block;width:54px;height:2px;background:var(--brass);
   border-radius:2px;margin:20px 0 0}
-.sheet-body > .sheet-lead{font-size:1.2rem;line-height:1.68;color:var(--ink);font-weight:300;
-  margin-top:24px;max-width:58ch}
+/* un solo corpo di testo in tutto il pannello: niente salto fra il primo
+   paragrafo e i seguenti, e stessa misura dentro al riquadro e negli elenchi */
+.sheet-body p{font-size:1.05rem;line-height:1.76;color:var(--taupe);font-weight:300;margin-top:18px}
 .sheet-body > p{max-width:66ch}
+.sheet-body > p:first-of-type{margin-top:24px}
+.sheet-body ul.punti li,.sheet-body ul.voci li{font-size:1.05rem}
 /* domanda di servizio dentro il pannello (es. "Chi &egrave; l'ortodontista?") */
 .sheet-body .ask{font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--ink);
   margin:34px 0 0;padding-top:28px;border-top:1px solid var(--line)}
