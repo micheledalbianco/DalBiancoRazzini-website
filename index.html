@@ -364,7 +364,7 @@
 @media (max-width:720px){.hero-media{background-image:url('assets/hero-mobile.jpg')!important;background-image:image-set(url('assets/hero-mobile.webp') type('image/webp'),url('assets/hero-mobile.jpg') type('image/jpeg'))!important;background-position:center!important}}
 .hero /* velo dell'hero: stessa scala di prima ma virata all'indaco, cosi' i blu
    della foto (vetri, insegne) non vengono spenti dal grigio caldo */
-.scrim{background:linear-gradient(90deg,rgba(12,28,62,.86) 0%,rgba(15,37,77,.55) 46%,rgba(26,59,122,.30) 100%)!important}
+.scrim{background:linear-gradient(90deg,rgba(13,32,70,.34) 0%,rgba(13,32,70,.42) 10%,rgba(14,34,74,.42) 60%,rgba(18,44,92,.18) 78%,rgba(26,59,122,.06) 100%)!important}
 /* pulsanti champagne, testo blu notte */
 .btn-solid{background:var(--gold-btn)!important;color:#142738!important}
 .btn-solid:hover{background:#d6c39c!important}
@@ -1274,6 +1274,14 @@ header.site.scrolled .menu .msec{display:block}
 @media(min-width:760px){
   .philo p{max-width:70ch;text-wrap:initial}
 }
+/* ===== HERO: titolo nel peso del marchio =====
+   i nomi nel logo sono Newsreader 300, il titolo era 600: nella stessa
+   schermata convivevano il peso piu' leggero e il piu' pesante della
+   stessa famiglia. Il corpo sale del 6% per compensare la leggerezza. */
+.hero h1{font-weight:300}
+/* il +6% vale solo da tablet in su: da telefono il titolo e' gia' piccolo
+   e il corpo maggiorato manderebbe "ci prendiamo cura" a capo */
+@media(min-width:821px){.hero h1{font-size:clamp(2.6rem,5.1vw,4.55rem)}}
 /* ===== HERO: le tre righe del titolo sono volute, non casuali ===== */
 .hero h1 .br1,.hero h1 .br2{display:inline}
 /* sotto i 340px "ci prendiamo cura" non ci sta su una riga: lascio andare a capo da solo */
