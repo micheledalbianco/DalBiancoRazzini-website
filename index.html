@@ -445,7 +445,7 @@
       <div class="philo reveal">
         <span class="eyebrow">La nostra filosofia</span>
         <h2 class="big">Una fiducia costruita nel tempo.</h2>
-        <p>Da oltre quarant'anni accogliamo i nostri pazienti nel nostro studio di via Decia 3 a Cremona. Crediamo in una cura che nasca dall'ascolto.</p>
+        <p>Da oltre quarant'anni vi accogliamo nel nostro studio in via Decia 3 a Cremona.<br class="brf">Crediamo in una cura che nasca dall'ascolto del paziente.</p>
         <p class="sign">Dott. Giuseppe Dal Bianco &amp; Dott.ssa Luciana Razzini<small>Soci fondatori</small></p>
       </div>
     </div>
@@ -1264,6 +1264,12 @@ header.site.scrolled .menu .msec{display:block}
   .brand .light .sd,.foot-brand .light .sd{font-size:.57rem;letter-spacing:.1em}
   .brand .light b,.foot-brand .light b{font-size:.88rem}
   .brand .light b .mk,.foot-brand .light b .mk{width:17px!important;margin:0 7px!important}
+}
+/* ===== FILOSOFIA: una frase per riga =====
+   con 60ch la prima frase (642px) non ci stava e si spezzava a meta';
+   a 70ch entrambe stanno su una riga sola, come sono scritte */
+@media(min-width:760px){
+  .philo p{max-width:70ch;text-wrap:initial}
 }
 /* ===== HERO: le tre righe del titolo sono volute, non casuali ===== */
 .hero h1 .br1,.hero h1 .br2{display:inline}
