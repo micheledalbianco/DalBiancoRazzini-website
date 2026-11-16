@@ -956,7 +956,10 @@
 .studio-strip .studio-info{align-self:stretch;display:flex;flex-direction:column;justify-content:center}
 @media(max-width:1199px){
   .studio-strip{grid-template-columns:1fr}
-  .studio-strip .ph{min-height:0;aspect-ratio:3/2}
+  .studio-strip .ph{min-height:0;aspect-ratio:3/2}}
+/* da telefono la foto era ereditata dal tablet e restava piccola:
+   4:3 invece di 3:2, +13% di area senza cambiare impaginazione */
+@media(max-width:720px){.studio-strip .ph{aspect-ratio:4/3
 }
 /* senza contatore la didascalia resta anche su telefono */
 .lb-bar .shots-cap{padding:0 14px}
